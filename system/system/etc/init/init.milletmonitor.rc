@@ -1,0 +1,40 @@
+on property:sys.boot_completed=1
+    start millet_sig
+    start millet_binder
+    start millet_pkg
+    mkdir /sys/fs/cgroup/frozen/
+    chown system system /sys/fs/cgroup/frozen/cgroup.procs
+    chown system system /sys/fs/cgroup/frozen/cgroup.freeze
+    write /sys/fs/cgroup/frozen/cgroup.freeze 1
+    mkdir /sys/fs/cgroup/unfrozen/
+    chown system system /sys/fs/cgroup/unfrozen/cgroup.procs
+    chown system system /sys/fs/cgroup/unfrozen/cgroup.freeze
+
+service millet_sig /system/bin/millet_monitor SIG
+#    user root
+#    group system
+    class main
+    onrestart restart millet_sig
+
+service millet_binder /system/bin/millet_monitor BINDER
+#    user root
+#    group system
+    class main
+    onrestart restart millet_binder
+
+service millet_pkg /system/bin/millet_monitor PKG
+#    user root
+#    group system
+    class  main
+    onrestart restart millet_pkg
+
+on property:sys.millet.socket=1
+   stop millet_binder
+   stop millet_pkg
+   stop millet_sig
+   start millet_binder
+   start millet_pkg
+   start millet_sig
+   setprop sys.millet.socket 0
+
+

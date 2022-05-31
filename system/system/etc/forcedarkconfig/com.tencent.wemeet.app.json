@@ -1,0 +1,81 @@
+{
+  "packageName": "com.tencent.wemeet.app",
+  "forceDark": true,
+  "mainRule": 0,
+  "secondaryRule": 0,
+  "forceDarkActivityConfigList": [
+    {
+      "activityName": "com.tencent.wemeet.components.webview.activity.GestureUIWebViewActivity",
+      "forceDark": true,
+      "forceDarkViewConfigList": [
+        {
+          "viewName": "com.tencent.smtt.sdk.WebView",
+          "forceDark": false,
+          "blackMask": true
+        }
+      ]
+    },
+    {
+      "activityName": "com.tencent.wemeet.sdk.meeting.inmeeting.InMeetingActivity",
+      "forceDark": true,
+      "forceDarkViewConfigList": [
+        {
+          "viewName": "androidx.appcompat.widget.AppCompatImageView",
+          "forceDark": false,
+          "conditions": [
+            {
+              "parent": 0,
+              "viewName": "android.widget.LinearLayout",
+              "index": -1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "activityName": "com.tencent.wemeet.module.docs.activity.DetailDocWebViewActivity",
+      "forceDark": true,
+      "forceDarkViewConfigList": [
+        {
+          "viewName": "com.tencent.smtt.sdk.WebView",
+          "forceDark": false,
+          "blackMask": true
+        }
+      ]
+    },
+    {
+      "activityName": "com.tencent.wemeet.sdk.meeting.inmeeting.VoteWebViewActivity",
+      "forceDark": true,
+      "forceDarkViewConfigList": [
+        {
+          "viewName": "com.tencent.smtt.sdk.WebView",
+          "forceDark": false,
+          "blackMask": true
+        }
+      ]
+    },
+    {
+      "activityName": "com.tencent.wemeet.module.historicalmeetings.activity.HistoryMeetingActivity",
+      "forceDark": true,
+      "forceDarkViewConfigList": [
+        {
+          "viewName": "com.tencent.wemeet.sdk.meeting.premeeting.home.view.MeetingRecyclerView",
+          "forceDark": true,
+          "usage": 103,
+          "conditions": [
+            {
+              "parent": 0,
+              "viewName": "androidx.swiperefreshlayout.widget.SwipeRefreshLayout",
+              "index": -1
+            },
+            {
+              "parent": 2,
+              "viewName": "com.tencent.wemeet.module.historicalmeetings.view.HistoryMeetingView",
+              "index": -1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
