@@ -1,0 +1,14 @@
+# cannon-user 12 SP1A.210812.016 22.5.31 release-keys
+- manufacturer: xiaomi
+- platform: mt6853
+- codename: cannon
+- flavor: cannon-user
+- release: 12
+- id: SP1A.210812.016
+- incremental: 22.5.31
+- tags: release-keys
+- fingerprint: Redmi/cannon/cannon:12/SP1A.210812.016/22.5.31:user/release-keys
+- is_ab: false
+- brand: Redmi
+- branch: cannon-user-12-SP1A.210812.016-22.5.31-release-keys
+- repo: redmi_cannon_dump

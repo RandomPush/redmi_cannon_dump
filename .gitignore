@@ -1,0 +1,13 @@
+system/system/priv-app/MiuiCamera/MiuiCamera.apk
+system/system/priv-app/MIUIBrowser/MIUIBrowser.apk
+system/system/priv-app/MIUIVipService/MIUIVipService.apk
+system/system/priv-app/MIUIVideo/MIUIVideo.apk
+system/system/priv-app/MIUIMusic/MIUIMusic.apk
+system/system/data-app/MIShop/MIShop.apk
+system/system/data-app/MIUIYoupin/MIUIYoupin.apk
+system/system/data-app/SmartHome/SmartHome.apk
+system/system/data-app/MIUIVipAccount/MIUIVipAccount.apk
+system/system/system_ext/apex/com.android.vndk.v30.apex
+system/system/system_ext/priv-app/Settings/Settings.apk
+product/priv-app/GmsCore/GmsCore.apk
+product/app/WebViewGoogle/WebViewGoogle.apk
