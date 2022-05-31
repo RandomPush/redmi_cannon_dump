@@ -1,0 +1,313 @@
+<?xml version="1.0" ?>
+<TestCases>
+    <Description>Audio</Description>
+    <Item>
+        <Description>Audio PA</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cat /d/asoc/codecs | egrep cs35l41</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>SpeakerCal</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>spkcal -c</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="2">
+            <type>file</type>
+            <addr>/mnt/vendor/persist/audio</addr>
+            <operation>read</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Speaker</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>playback.sh spk</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>aw8622_f0_cali</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>aw8622_f0_cali</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Speaker HP</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>playback.sh spk_hp</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Receiver</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>playback.sh rcv</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Receiver HP</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>playback.sh rcv_hp</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Teardown all loopback</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>teardown_loopback.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Headset mic Rcv loopback</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>setup_headsetmic2rcv.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Main Mic capture</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>capture.sh main-mic 48000 16 2 1.5</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Top Mic capture</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>capture.sh top-mic 48000 16 2 1.5</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Main Mic loopback</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>setup_mainmic2headphone.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Top Mic loopback</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>setup_topmic2headphone.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Disable Ultrasonic</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>settings put global HIC_enable 0</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Ultrasonic</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>playback.sh us</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Ultrasonic sample</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>playback.sh us 96000 16 2 1.5</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>3.5mm insert</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cat /sys/devices/platform/accdet/driver/state | egrep '1|2'</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Clear Parameter</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>setup_fct</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>vibrator_cal_f0</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>vib_cal -f | grep '^f0' | awk '{print $3}'</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>vibrator_cal_osc</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>vib_cal -o | grep '^osc' | awk {'print $3'}</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>vibrator_cal_resistance</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>vib_cal -z | grep '^cal_z' | awk '{print $3}'</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>vibrator_driver_check</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cat /sys/bus/i2c/devices/6-005a/name</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Ultrsound proimixty Cal</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>mkdir /sdcard/elliptic</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="2">
+            <type>prop</type>
+            <addr>vendor.audio.ultrasound.mode</addr>
+            <operation>write</operation>
+            <value>831</value>
+        </Step>
+        <Step index="3">
+            <type>exec</type>
+            <addr>elliptic_engine_record -s /dev/elliptic1:device -f binpayload -p /sdcard/elliptic/</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Ultrsound proimixty Start</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors 331710031 -w</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Ultrsound proimixty Near</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>tinymix 'Ultrasound Calibration State' 2</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Ultrsound proimixty Far</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>tinymix 'Ultrasound Calibration State' 1</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Ultrsound proimixty Check</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cp /sys/elliptic/engine/calibration_v2 /mnt/vendor/persist/audio/us_cal_v2</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+        <Step index="2">
+            <type>exec</type>
+            <addr>chmod 644 /mnt/vendor/persist/audio/us_cal_v2</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+        <Step index="3">
+            <type>file</type>
+            <addr>/mnt/vendor/persist/audio/us_cal_v2</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Ultrasound proimixty Close</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>killall test-nusensors</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+</TestCases>
